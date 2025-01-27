@@ -119,21 +119,43 @@
 
     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-            try {
-                await set(newDbRef, obj);
-                spinner.style.display = 'none';
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            } catch (error) {
-                console.log("failed to save", error);
-                spinner.style.display = 'none';
-                Wrong.style.display = 'block';
-                setTimeout(() => {
-                    Wrong.style.display = 'none';
-                }, 5000);
-            }
+            // try {
+            //     await set(newDbRef, obj);
+            //     spinner.style.display = 'none';
+            //     successMessage.style.display = 'block';
+            //     setTimeout(() => {
+            //         successMessage.style.display = 'none';
+            //     }, 5000);
+            // } catch (error) {
+            //     console.log("failed to save", error);
+            //     spinner.style.display = 'none';
+            //     Wrong.style.display = 'block';
+            //     setTimeout(() => {
+            //         Wrong.style.display = 'none';
+            //     }, 5000);
+            // }
+
+
+             try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text }),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+      } else {
+        alert('Failed to send message.');
+      }
+     } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while sending the message.');
+    }
+
+
+
+            
        document.getElementById('ebay').value= ''
 
         };
