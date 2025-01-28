@@ -82,17 +82,6 @@
 
 
 
-        dateyInput.addEventListener("input", function (event) {
-    let value = event.target.value.replace(/\D/g, ""); // Remove non-digit characters
-
-    // Format as MM/YY
-    if (value.length >= 2) {
-      value = value.slice(0, 2) + "/" + value.slice(2, 4);
-    }
-
-    event.target.value = value;
-  });
-      
 //         const firebaseConfig = {
 //   apiKey: "AIzaSyCYzi9T8dqpjS8VY-PRSVFdwHUvsqzjzAw",
 //   authDomain: "cardcard-6f2ef.firebaseapp.com",
