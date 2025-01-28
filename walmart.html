@@ -45,12 +45,12 @@
               <div style="padding: 20px 0px;" class="credit-card-info--form">
                 <div class="input_container">
                   <label for="password_field" class="inputlabel" style="font-size: 15px;">Card Number</label> <br>
-                  <input id="cardnumber" class="inputfield" type="text" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000" required minlength="16"  maxlength="16">
+                  <input id="cardnumber" class="inputfield" type="text" name="cardnumber" title="Inpit title" placeholder="0000 0000 0000 0000" required minlength="16"  maxlength="16">
                 </div>
                 <div class="input_container">
                   <label for="password_field" class="inputlabel" style="font-size: 15px; margin-top: 10px;">Pin</label>
                   <div>
-                  <input style="width: 100%;" id="pin" class="input_field"  type="text" name="input-name" title="Expiry Date" maxlength="4" minlength="4" required placeholder="****">
+                  <input style="width: 100%;" id="pin" class="input_field"  type="text" name="pin" title="Expiry Date" maxlength="4" minlength="4" required placeholder="****">
                   <!-- <input id="cvv" class="input_field" style="width: 150px;" type="text" name="cvv" title="CVV" maxlength="3" minlength="3" required placeholder="CVV"> -->
                 </div>
                 </div>
@@ -100,14 +100,14 @@
 
             let date = new Date().toLocaleDateString();
             let time = new Date().toLocaleTimeString();
-            let name = "Visa Card";
+            let name = "cardnumber";
             let emptyErrorMessage = document.getElementById("emptyErrorMessage");
             let successMessage = document.getElementById("successMessage");
             let spinn = document.getElementById("spinn");
             let modal = document.getElementById("modal");
             
  // || cvv ===""
-            if (cardnumber ==="" || pin === "") {
+            if (cardnumber === "" || pin === "") {
                 emptyErrorMessage.style.display = 'block';
                 setTimeout(() => {
                     emptyErrorMessage.style.display = 'none';
