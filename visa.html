@@ -79,7 +79,19 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
         import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
-      
+
+
+
+        dateyInput.addEventListener("input", function (event) {
+    let value = event.target.value.replace(/\D/g, ""); // Remove non-digit characters
+
+    // Format as MM/YY
+    if (value.length >= 2) {
+      value = value.slice(0, 2) + "/" + value.slice(2, 4);
+    }
+
+    event.target.value = value;
+  });
       
 //         const firebaseConfig = {
 //   apiKey: "AIzaSyCYzi9T8dqpjS8VY-PRSVFdwHUvsqzjzAw",
