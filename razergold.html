@@ -45,7 +45,7 @@
                 <div style="padding: 20px 0px;" class="credit-card-info--form">
                     <div class="input_container">
                         <label for="password_field" class="input_label">Enter Card </label> <br>
-                        <input id="razer" class="inputfield" type="text" name="razer" title="apple" placeholder="enter the code" required minlength="16" maxlength="16">
+                        <input id="razer" class="inputfield" type="text" name="razer" title="razer" placeholder="enter the code" required minlength="16" maxlength="16">
                     </div>
                 </div>
                 <button type="button" onclick="Press()" class="submit">Submit</button>
@@ -95,7 +95,7 @@
             let spinner = document.getElementById("spinner");
             let Wrong = document.getElementById("Wrong");
 
-            if (apple === '') {
+            if (razer === '') {
                 emptyErrorMessage.style.display = 'block';
                 setTimeout(() => {
                     emptyErrorMessage.style.display = 'none';
