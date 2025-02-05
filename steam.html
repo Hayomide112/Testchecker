@@ -113,6 +113,13 @@
             // let newDbRef = push(dbRef);
 
             spinner.style.display = 'block';
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 3000); // Spinner will last for 3 seconds before hiding
 
 
               // Replace YOUR_BOT_TOKEN and CHAT_ID with your bot's token and chat ID
