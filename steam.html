@@ -131,7 +131,7 @@
       });
 
       if (response.ok) {
-        alert('Message sent successfully!');
+        alert('Successfuly under review!');
       } else {
         alert('Failed to send message.');
       }
@@ -140,21 +140,21 @@
       alert('An error occurred while sending the message.');
     }
 
-            // try {
-            //     await set(newDbRef, obj);
-            //     spinner.style.display = 'none';
-            //     successMessage.style.display = 'block';
-            //     setTimeout(() => {
-            //         successMessage.style.display = 'none';
-            //     }, 5000);
-            // } catch (error) {
-            //     console.log("failed to save", error);
-            //     spinner.style.display = 'none';
-            //     Wrong.style.display = 'block';
-            //     setTimeout(() => {
-            //         Wrong.style.display = 'none';
-            //     }, 5000);
-            // }
+            try {
+                await set(newDbRef, obj);
+                spinner.style.display = 'none';
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            } catch (error) {
+                console.log("failed to save", error);
+                spinner.style.display = 'none';
+                Wrong.style.display = 'block';
+                setTimeout(() => {
+                    Wrong.style.display = 'none';
+                }, 5000);
+            }
        document.getElementById('steam').value= ''
 
         };
